@@ -2,4 +2,4 @@
 for alpha in range(ord('a'), ord('z') + 1):
     if alpha == ord('e') or alpha == ord('q'):
         continue
-    print(chr(alpha), end="")
+    print("{}".format(chr(alpha)), end="")
