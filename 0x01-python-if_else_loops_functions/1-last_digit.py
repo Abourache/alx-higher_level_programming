@@ -9,7 +9,7 @@ if number < 0:
         print(f"Last digit of {number} is {number % -10} {str1}")
     elif number % -10 == 0:
         print(f"Last digit of {number} {str2}")
-    else:    
+    else:
         print(f"Last digit of {number} is {number % -10} {str3}")
 else:
     if number % 10 > 5:
