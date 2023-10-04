@@ -101,3 +101,12 @@ class Rectangle:
         Represents the rectangle with the # character.
         """
         return self._d_rectangle()
+    
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+    
+    @staticmethod
+    def __del__():
+        """Print a message for every deletion of a Rectangle."""
+        print('Bye rectangle...')

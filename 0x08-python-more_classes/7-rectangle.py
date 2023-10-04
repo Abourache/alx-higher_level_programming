@@ -4,6 +4,10 @@
 
 class Rectangle:
     """Represent a rectangle."""
+
+    number_of_instances = 0
+    print_symbol = '#'
+    
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle.
 
@@ -101,3 +105,13 @@ class Rectangle:
         Represents the rectangle with the # character.
         """
         return self._d_rectangle()
+    
+    def __repr__(self):
+        """Return the string representation of the Rectangle."""
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+    
+    @classmethod
+    def __del__(cls):
+        """Print a message for every deletion of a Rectangle."""
+        cls.number_of_instances -= 1
+        print('Bye rectangle...')
