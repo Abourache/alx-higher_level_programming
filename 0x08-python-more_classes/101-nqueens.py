@@ -86,7 +86,6 @@ def new_queen_safe(board, row, column):
     """
     x = row
     y = column
-
     for i in range(1, N):
         if (y - i) >= 0:
             # check up-left diagonal
@@ -124,8 +123,8 @@ def coordinate_format(my_candidates):
         my_list.append([])
         for i, row in enumerate(attempt):
             my_list[x].append([])
-            for j, col in enumerate(row):
-                if col:
+            for j, column in enumerate(row):
+                if column:
                     my_list[x][i].append(i)
                     my_list[x][i].append(j)
     return my_list
@@ -135,7 +134,7 @@ my_candidates = []
 my_candidates.append(board_column_gen())
 
 # proceed column by column, testing the rightmost
-for col in range(N):
+for column in range(N):
     # start a new generation of the candidate list for every round of testing
     my_new_candidates = []
     # test each candidate from previous round, at current column
@@ -143,13 +142,13 @@ for col in range(N):
         # for every row in that candidate's rightmost column
         for row in range(N):
             # are there any conflicts in placing a queen at those coordinates?
-            if new_queen_safe(matrix, row, col):
+            if new_queen_safe(matrix, row, column):
                 # no? then create a "child" (copy) of that candidate
                 temp = [line[:] for line in matrix]
                 # place a queen in that position
-                add_queen(temp, row, col)
+                add_queen(temp, row, column)
                 # and unless you're in the last round of testing,
-                if col < N - 1:
+                if column < N - 1:
                     # add a new column of 0s on the right for the next round
                     board_column_gen(temp)
                 # add that new candidate to this round's list of successes
